@@ -11,8 +11,8 @@ namespace ConsoleTesting
     {
         static void Main(string[] args)
         {
-            string ct = "prsaoegerauiadmwehdnisnrasawuaaessrefgdosogvorbeeeaartesctdfmenuibrttlmeytumtmeuaikwhutkwerwahmnpwraeesononesebatoihacineetbrotadaktgfeesyioflttlstiiaeosvieonsrrtaupmnnoaencocnuvrsclvdrgctaiihriciaihrsduomrlemcrngleomarfhiuewhalcsasracufrawwsmehulstoaohceletmtoilsepdmumtptrslyrhhntpanwpmoadppdwbeseoassltmlpesletuncorerlclitaosvsiniifwseafortaaduyenenonnsopfhontwkoertcslyvoeiohlufoeioetsthtsbreneveaouepgieesobduorsfeercdyadutaepeadrdigseebfuoggopogalyfewsoeemdntohrebhaaesneworgnfiaulnlwadueodcotrargvuenewhiertlauilmsoniotmuinewaiuewloerstttisdrsasnussiesmerdhetryrhpnlrtereadmredebnntrnenwmoutrdosaneowomcgidciasaontiioiascesissupcrmoybrineyweelaylewtyrtilhsto";
-            Console.WriteLine(RailFence.Decrypt(ct, 5));
+            string ct = "wecrlteerdsoeefeaocnwaivdeno";
+            Console.WriteLine(RailFence.Decrypt(ct, 3));
 
             Console.ReadLine();
         }
