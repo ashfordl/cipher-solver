@@ -7,10 +7,10 @@ namespace ConsoleTesting
     {
         static void Main(string[] args)
         {
-            string ct = "wecrlteerdsoeefeaocnwaivdeno";
-            Console.WriteLine(RailFence.Decrypt(ct, 3));
+            string ct = "abc";
+            Console.WriteLine(RailFence.Decrypt(ct, 5));
 
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
