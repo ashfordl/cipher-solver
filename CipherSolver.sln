@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CipherSolver", "CipherSolve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleTesting", "ConsoleTesting\ConsoleTesting.csproj", "{C11FAAB6-84ED-451A-BD76-8906534ED424}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CipherSolverTests", "CipherSolverTests\CipherSolverTests.csproj", "{1AB17B0A-3C19-4C5A-B28F-5175B7475A65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C11FAAB6-84ED-451A-BD76-8906534ED424}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C11FAAB6-84ED-451A-BD76-8906534ED424}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C11FAAB6-84ED-451A-BD76-8906534ED424}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AB17B0A-3C19-4C5A-B28F-5175B7475A65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AB17B0A-3C19-4C5A-B28F-5175B7475A65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AB17B0A-3C19-4C5A-B28F-5175B7475A65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AB17B0A-3C19-4C5A-B28F-5175B7475A65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
