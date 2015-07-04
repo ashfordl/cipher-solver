@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Text;
 
-namespace CipherSolver
+namespace CipherSolver.Ciphers
 {
-    public class RailFence
+    public static class RailFence
     {
         /// <summary>
         /// Encrypts a given message using the rail fence cipher
