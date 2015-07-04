@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Analysis\Alphabet.cs" />
+    <Compile Include="Analysis\Frequency.cs" />
+    <Compile Include="Ciphers\Caesar.cs" />
+    <Compile Include="Ciphers\Substitution.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ciphers\RailFence.cs" />
   </ItemGroup>
