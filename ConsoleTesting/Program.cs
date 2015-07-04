@@ -12,12 +12,9 @@ namespace ConsoleTesting
         {
             string text = "we have been discovered flee at once";
 
-            Console.WriteLine("--- FREQUENCY ANALYSIS RESULTS ---");
+            Console.WriteLine(29 % 26);
 
-            foreach (KeyValuePair<char, int> data in Frequency.Analyse(text).OrderBy(key => key.Value))
-            {
-                Console.WriteLine(" {0}   {1,3}", data.Key, data.Value);
-            }
+            // Console.WriteLine(Caesar.Encrypt("abc", -3));
 
             Console.ReadKey();
         }
