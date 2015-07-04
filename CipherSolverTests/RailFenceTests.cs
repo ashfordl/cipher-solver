@@ -10,16 +10,16 @@ namespace CipherSolverTests
         [TestMethod]
         public void EncryptTest()
         {
-            Assert.AreEqual("wecrlteerdsoeefeaocaivden", 
+            Assert.AreEqual("WECRLTEERDSOEEFEAOCAIVDEN", 
                 RailFence.Encrypt("wearediscoveredfleeatonce", 3));
 
-            Assert.AreEqual("tlcimntphifeirsroasiiiheaecpeaofrpsocernhftonr", 
+            Assert.AreEqual("TLCIMNTPHIFEIRSROASIIIHEAECPEAOFRPSOCERNHFTONR", 
                 RailFence.Encrypt("therailfencecipherisaformoftranspositioncipher", 4));
 
-            Assert.AreEqual("abc",
+            Assert.AreEqual("ABC",
                 RailFence.Encrypt("abc", 3));
 
-            Assert.AreEqual("aebdc",
+            Assert.AreEqual("AEBDC",
                 RailFence.Encrypt("abcde", 3));
         }
 
@@ -27,16 +27,16 @@ namespace CipherSolverTests
         public void DecryptTest()
         {
             Assert.AreEqual("wearediscoveredfleeatonce",
-                RailFence.Decrypt("wecrlteerdsoeefeaocaivden", 3));
+                RailFence.Decrypt("WECRLTEERDSOEEFEAOCAIVDEN", 3));
 
-            Assert.AreEqual("therailfencecipherisaformoftranspositioncipher", 
-                RailFence.Decrypt("tlcimntphifeirsroasiiiheaecpeaofrpsocernhftonr", 4));
+            Assert.AreEqual("therailfencecipherisaformoftranspositioncipher",
+                RailFence.Decrypt("TLCIMNTPHIFEIRSROASIIIHEAECPEAOFRPSOCERNHFTONR", 4));
 
             Assert.AreEqual("abc",
-                RailFence.Decrypt("abc", 3));
+                RailFence.Decrypt("ABC", 3));
 
             Assert.AreEqual("abcde",
-                RailFence.Decrypt("aebdc", 3));
+                RailFence.Decrypt("AEBDC", 3));
         }
     }
 }

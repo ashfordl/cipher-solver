@@ -22,7 +22,7 @@ namespace CipherSolver.Ciphers
                 builder.Append(row);
             }
 
-            return builder.ToString();
+            return builder.ToString().ToUpper();
         }
 
         /// <summary>
@@ -56,7 +56,7 @@ namespace CipherSolver.Ciphers
             int[] lengths = FindLengths(ciphertext, key);
 
             // Construct plaintext and return
-            return RebuildPlaintext(ciphertext, key, lengths);
+            return RebuildPlaintext(ciphertext, key, lengths).ToLower();
         }
 
         /// <summary>
