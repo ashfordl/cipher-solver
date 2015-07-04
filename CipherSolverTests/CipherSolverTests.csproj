@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="RailFenceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FrequencyTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CipherSolver\CipherSolver.csproj">
