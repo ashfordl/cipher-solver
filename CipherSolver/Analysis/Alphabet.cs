@@ -12,12 +12,7 @@ namespace CipherSolver.Analysis
         /// </summary>
         public static bool IsAlphabetic(char c)
         {
-            if (UPPER.Contains(new string(c, 1)) || LOWER.Contains(new string(c, 1)))
-            {
-                return true;
-            }
-
-            return false;
+            return UPPER.Contains(new string(c.ToUpper(), 1));
         }
 
         /// <summary>
@@ -31,7 +26,7 @@ namespace CipherSolver.Analysis
 
             if (UPPER.Contains(ch))
             {
-                return UPPER.IndexOf(c);
+                return UPPER.IndexOf(ch);
             }
 
             throw new ArgumentException("Parameter c must be an alphabetic character", "c");
