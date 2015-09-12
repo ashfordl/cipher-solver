@@ -48,8 +48,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CipherSolver\CipherSolver.csproj">
-      <Project>{7f3e5205-8459-47cd-9645-77eca5d0c94f}</Project>
+    <ProjectReference Include="..\CipherSolverLibrary\CipherSolver.csproj">
+      <Project>{442e67b4-a909-4ecd-a6da-2c58a759d0ed}</Project>
       <Name>CipherSolver</Name>
     </ProjectReference>
   </ItemGroup>
