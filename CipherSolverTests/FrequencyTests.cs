@@ -33,5 +33,21 @@ namespace CipherSolverTests
             result = Frequency.Analyse("We haVe been; DiscoverEd flee at oNce.12");
             Assert.IsTrue(dict.All(e => result.Contains(e)));
         }
+    
+        [TestMethod]
+        public void CountBigramsTest()
+        {
+            string text = "the quick brown fox jumped over the lazy dog";
+            Assert.AreEqual(7, Frequency.CountBigrams(text));
+
+            text = "tH e quickbr\"ownfox jumped overThe lazy dog!";
+            Assert.AreEqual(7, Frequency.CountBigrams(text));
+
+            text = "we have been discovered flee at once";
+            Assert.AreEqual(14, Frequency.CountBigrams(text));
+
+            text = "We haVe been; DiscoverEd flee at oNce.12";
+            Assert.AreEqual(14, Frequency.CountBigrams(text));
+        }
     }
 }
