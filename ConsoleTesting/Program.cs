@@ -12,7 +12,10 @@ namespace ConsoleTesting
         {
             string text = "we have been discovered flee at once";
 
-            Console.WriteLine(29 % 26);
+            foreach (string s in Frequency.BIGRAMS)
+            {
+                Console.WriteLine(s);
+            }
 
             // Console.WriteLine(Caesar.Encrypt("abc", -3));
 
