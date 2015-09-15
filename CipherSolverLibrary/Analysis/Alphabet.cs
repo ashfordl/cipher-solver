@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace CipherSolver.Analysis
 {
@@ -48,6 +49,24 @@ namespace CipherSolver.Analysis
             {
                 return LOWER[index];
             }
+        }
+
+        /// <summary>
+        /// Returns a string converted a list of each letter's integer value.
+        /// </summary>
+        /// <param name="s">The string to convert to integer values.</param>
+        public static List<int> StringToNumbers(string s)
+        {
+
+        }
+
+        /// <summary>
+        /// Returns a string with repeated characters removed.
+        /// </summary>
+        /// <param name="s">The string to remove repeats from.</param>
+        public static string RemoveRepeats(string s)
+        {
+
         }
 
         /// <summary>
