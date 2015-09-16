@@ -57,9 +57,38 @@ namespace CipherSolver.Analysis
             return results;
         }
 
-        /*public static int CountBigrams(string text)
+        /// <summary>
+        /// Counts the frequency of the most common English bigrams in the text
+        /// </summary>
+        /// <param name="text">The text to analyse</param>
+        /// <returns>The number of bigrams in the text</returns>
+        public static int CountBigrams(string text)
         {
+            text = text.ToLower();
 
-        }*/
+            char prev = text[0];
+            int total = 0;
+
+            foreach (char c in text)
+            {
+                // Skip non-alphabetic characters
+                if (!Alphabet.IsAlphabetic(c))
+                {
+                    continue;
+                }
+
+                // Create bigram for this iteration
+                string bigram = prev.ToString() + c.ToString();
+
+                if (BIGRAMS.Contains(bigram))
+                {
+                    total += 1;
+                }
+
+                prev = c;
+            }
+
+            return total;
+        }
     }
 }
