@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CipherSolver.Analysis
 {
@@ -57,16 +58,23 @@ namespace CipherSolver.Analysis
         /// <param name="s">The string to convert to integer values</param>
         public static List<int> StringToNumbers(string s)
         {
+            s = s.ToLower();
+            List<int> nums = new List<int>();
+            foreach (char c in s)
+            {
+                nums.Add(Alphabet.IndexOf(c));
+            }
 
+            return nums;
         }
 
         /// <summary>
         /// Returns a string with repeated characters removed
         /// </summary>
         /// <param name="s">The string to remove repeats from</param>
-        public static string RemoveRepeats(string s)
+        public static string RemoveDuplicates(string s)
         {
-
+            return new string(s.ToCharArray().Distinct().ToArray());
         }
 
         /// <summary>
