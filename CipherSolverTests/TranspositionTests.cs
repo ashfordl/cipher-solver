@@ -15,32 +15,32 @@ namespace CipherSolverTests
         public void EncryptTest()
         {
             Assert.AreEqual("EVLNEACDTKESEAQROFOJDEECUWIREE",
-                Transposition.Encrypt("WEAREDISCOVEREDFLEEATONCEQKJEU", "zebras"));
+                Transposition.Encrypt("wearediscoveredfleeatonceqkjeu", "zebras"));
 
             Assert.AreEqual("EVLNACDTESEAROFODEECWIREE",
-                Transposition.Encrypt("WEAREDISCOVEREDFLEEATONCE", "zebras"));
+                Transposition.Encrypt("wearediscoveredfleeatonce", "zebras"));
 
             Assert.AreEqual("CAEENSOIAEDRLEFWEDREEVTOC",
-                Transposition.Encrypt("EVLNACDTESEAROFODEECWIREE", "stripe"));
+                Transposition.Encrypt("evlnacdtesearofodeecwiree", "stripe"));
 
             Assert.AreEqual("ROFOACDTEDSEEEACWEIVRLENE",
-                Transposition.Encrypt("WEAREDISCOVEREDFLEEATONCE", "tomato", false));
+                Transposition.Encrypt("wearediscoveredfleeatonce", "tomato", false));
         }
 
         [TestMethod]
         public void DecryptTest()
         {
-            Assert.AreEqual("WEAREDISCOVEREDFLEEATONCEQKJEU",
-                Transposition.Encrypt("EVLNEACDTKESEAQROFOJDEECUWIREE", "zebras"));
+            Assert.AreEqual("wearediscoveredfleeatonceqkjeu",
+                Transposition.Decrypt("EVLNEACDTKESEAQROFOJDEECUWIREE", "zebras"));
 
-            Assert.AreEqual("WEAREDISCOVEREDFLEEATONCE",
-                Transposition.Encrypt("EVLNACDTESEAROFODEECWIREE", "zebras"));
+            Assert.AreEqual("wearediscoveredfleeatonce",
+                Transposition.Decrypt("EVLNACDTESEAROFODEECWIREE", "zebras"));
 
-            Assert.AreEqual("EVLNACDTESEAROFODEECWIREE",
-                Transposition.Encrypt("CAEENSOIAEDRLEFWEDREEVTOC", "stripe"));
+            Assert.AreEqual("evlnacdtesearofodeecwiree",
+                Transposition.Decrypt("CAEENSOIAEDRLEFWEDREEVTOC", "stripe"));
 
-            Assert.AreEqual("WEAREDISCOVEREDFLEEATONCE",
-                Transposition.Encrypt("ROFOACDTEDSEEEACWEIVRLENE", "tomato", false));
+            Assert.AreEqual("wearediscoveredfleeatonce",
+                Transposition.Decrypt("ROFOACDTEDSEEEACWEIVRLENE", "tomato", false));
         }
     }
 }
