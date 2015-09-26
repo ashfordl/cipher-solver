@@ -17,17 +17,39 @@ namespace CipherSolverLibrary.Ciphers
         public static string Encrypt(string plaintext, string key, bool removeRepeats = true)
         {
             List<int> keyData = GetKeyData(key, removeRepeats);
-            List<string> columns = PlaintextToColumns(plaintext, keyData.Count);
-            var orderedColumns = columns.Select((c, i) => new { Column = c, Index = keyData[i] })
-                             .OrderBy(i => i.Index);
+            var orderedKey = keyData.OrderBy(v => v).ToList();
+            // Finds the order to read columns (eg tomato = 421042)
+            var keyPos = keyData.Select((val, ind) => orderedKey.IndexOf(val)).ToList();
 
-            StringBuilder builder = new StringBuilder();
-            foreach (var col in orderedColumns)
+            string[] cols = plaintext.SplitByNth(key.Length);
+            StringBuilder output = new StringBuilder();
+
+            // Loop through each unique key value
+            for (int k = 0; k < key.Length; k++)
             {
-                builder.Append(col.Column);
+                // Select columns with this key letter
+                var relevantCols = cols.Where((c, i) => keyPos[i] == k)
+                                       .Select(c => c);
+
+                int longest = relevantCols.Select(c => c.Length).Max();
+
+                // Read characters across columns and append them to the output
+                for (int r = 0; r < longest; r++)
+                {
+                    foreach (string col in relevantCols)
+                    {
+                        if(r < col.Length)
+                        {
+                            output.Append(col[r]);
+                        }
+                    }
+                }
+
+                // Skip ahead if there were repeated key letters
+                k += relevantCols.Count() - 1;
             }
 
-            return builder.ToString();
+            return output.ToString().ToUpper();
         }
 
         /// <summary>
@@ -37,7 +59,6 @@ namespace CipherSolverLibrary.Ciphers
         public static string Decrypt(string ciphertext, string key, bool removeRepeats = true)
         {
             List<int> keyData = GetKeyData(key, removeRepeats);
-            // Orders keyData alphabetically
             var orderedKey = keyData.OrderBy(v => v).ToList();
             // Finds the order to read columns (eg tomato = 421042)
             var keyPos = keyData.Select((val, ind) => orderedKey.IndexOf(val)).ToList();
