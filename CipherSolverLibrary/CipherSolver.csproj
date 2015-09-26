@@ -50,8 +50,10 @@
     <Compile Include="Ciphers\Caesar.cs" />
     <Compile Include="Ciphers\RailFence.cs" />
     <Compile Include="Ciphers\Substitution.cs" />
+    <Compile Include="Ciphers\Transposition.cs" />
     <Compile Include="FileReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TextExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="bigrams.json">

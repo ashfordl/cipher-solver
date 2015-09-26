@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CipherSolver.Analysis
 {
@@ -8,7 +10,7 @@ namespace CipherSolver.Analysis
         public const string LOWER = "abcdefghijklmnopqrstuvwxyz";
 
         /// <summary>
-        /// Returns true if the character is alphabetic, ignoring case.
+        /// Returns true if the character is alphabetic, ignoring case
         /// </summary>
         public static bool IsAlphabetic(char c)
         {
@@ -16,10 +18,10 @@ namespace CipherSolver.Analysis
         }
 
         /// <summary>
-        /// Returns the index of the character within the alphabet.
+        /// Returns the index of the character within the alphabet
         /// </summary>
-        /// <param name="c">The character to find.</param>
-        /// <returns>The index of the character.</returns>
+        /// <param name="c">The character to find</param>
+        /// <returns>The index of the character</returns>
         public static int IndexOf(char c)
         {
             string ch = new string(c.ToUpper(), 1);
@@ -33,11 +35,11 @@ namespace CipherSolver.Analysis
         }
 
         /// <summary>
-        /// Returns the character at the specified index in the alphabet.
+        /// Returns the character at the specified index in the alphabet
         /// </summary>
-        /// <param name="index">The character index.</param>
-        /// <param name="uppercase">True if the character should be upper case, false if lowercase.</param>
-        /// <returns>The character at that index.</returns>
+        /// <param name="index">The character index</param>
+        /// <param name="uppercase">True if the character should be upper case, false if lowercase</param>
+        /// <returns>The character at that index</returns>
         public static char LetterAt(int index, bool uppercase)
         {
             if (uppercase)
@@ -51,7 +53,32 @@ namespace CipherSolver.Analysis
         }
 
         /// <summary>
-        /// Extension method for characters to provide ToUpper functionality.
+        /// Returns a string converted a list of each letter's integer value
+        /// </summary>
+        /// <param name="s">The string to convert to integer values</param>
+        public static List<int> StringToNumbers(string s)
+        {
+            s = s.ToLower();
+            List<int> nums = new List<int>();
+            foreach (char c in s)
+            {
+                nums.Add(Alphabet.IndexOf(c));
+            }
+
+            return nums;
+        }
+
+        /// <summary>
+        /// Returns a string with repeated characters removed
+        /// </summary>
+        /// <param name="s">The string to remove repeats from</param>
+        public static string RemoveDuplicates(string s)
+        {
+            return new string(s.ToCharArray().Distinct().ToArray());
+        }
+
+        /// <summary>
+        /// Extension method for characters to provide ToUpper functionality
         /// </summary>
         public static char ToUpper(this char ch)
         {
@@ -59,7 +86,7 @@ namespace CipherSolver.Analysis
         }
 
         /// <summary>
-        /// Extension method for characters to provide ToLower functionality.
+        /// Extension method for characters to provide ToLower functionality
         /// </summary>
         public static char ToLower(this char ch)
         {
