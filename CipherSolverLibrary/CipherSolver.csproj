@@ -7,8 +7,8 @@
     <ProjectGuid>{442E67B4-A909-4ECD-A6DA-2C58A759D0ED}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CipherSolverLibrary</RootNamespace>
-    <AssemblyName>CipherSolverLibrary</AssemblyName>
+    <RootNamespace>CipherSolver</RootNamespace>
+    <AssemblyName>CipherSolver</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

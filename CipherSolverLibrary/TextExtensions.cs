@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CipherSolver.Analysis;
 
-namespace CipherSolverLibrary
+namespace CipherSolver
 {
     /// <summary>
     /// Contains various extension methods for working with strings and chars
