@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using CipherSolver;
 using CipherSolver.Analysis;
 
 namespace CipherSolverLibrary.Ciphers
@@ -31,19 +28,7 @@ namespace CipherSolverLibrary.Ciphers
                 var relevantCols = cols.Where((c, i) => keyPos[i] == k)
                                        .Select(c => c);
 
-                int longest = relevantCols.Select(c => c.Length).Max();
-
-                // Read characters across columns and append them to the output
-                for (int r = 0; r < longest; r++)
-                {
-                    foreach (string col in relevantCols)
-                    {
-                        if(r < col.Length)
-                        {
-                            output.Append(col[r]);
-                        }
-                    }
-                }
+                output.Append(relevantCols.CombineSplitString());
 
                 // Skip ahead if there were repeated key letters
                 k += relevantCols.Count() - 1;
@@ -68,19 +53,7 @@ namespace CipherSolverLibrary.Ciphers
 
             StringBuilder builder = new StringBuilder();
 
-            int longest = cols.Select(c => c.Length).Max();
-
-            // Loop through rows then through columns and build the plaintext
-            for (int i = 0; i < longest; i++)
-            {
-                for (int j = 0; j < cols.Length; j++)
-                {
-                    if (i < cols[j].Length)
-                    {
-                        builder.Append(cols[j][i]);
-                    }
-                }
-            }
+            builder.Append(cols.CombineSplitString());
 
             return builder.ToString().ToLower();
         }
@@ -100,28 +73,6 @@ namespace CipherSolverLibrary.Ciphers
         }
 
         /// <summary>
-        /// Splits a keytext into columns to be used
-        /// </summary>
-        /// <returns>A list of columns</returns>
-        private static List<string> PlaintextToColumns(string plaintext, int keyLength)
-        {
-            StringBuilder[] builders = new StringBuilder[keyLength];
-            for (int i = 0; i < keyLength; i++)
-            {
-                builders[i] = new StringBuilder();
-            }
-
-            for (int i = 0; i < plaintext.Length; i++)
-            {
-                builders[i % keyLength].Append(plaintext[i]);
-            }
-
-            List<string> res = builders.Select(b => b.ToString()).ToList();
-
-            return res;
-        }
-
-        /// <summary>
         /// Splits the ciphertext into columns for decrypting
         /// </summary>
         /// <param name="ciphertext">The ciphertext to split</param>
@@ -129,17 +80,16 @@ namespace CipherSolverLibrary.Ciphers
         /// <returns>A list of the columns</returns>
         private static string[] CiphertextToColumns(string ciphertext, List<int> keyPos)
         {
-            int keyLength = keyPos.Count;
-            int baselen = ciphertext.Length / keyLength;
+            int baselen = ciphertext.Length / keyPos.Count;
             // The number of characters appended onto the end of columns
-            int excess = ciphertext.Length - (baselen * keyLength);
+            int excess = ciphertext.Length - (baselen * keyPos.Count);
             // Finds the length corresponding to each column
             var colLens = keyPos.Select((val, i) => new { Value = val, Length = excess > i ? baselen + 1 : baselen });
 
-            string[] cols = new string[keyLength];
+            string[] cols = new string[keyPos.Count];
 
             // Iterate once for each unique key letter
-            for (int i = 0; i < keyLength; i++)
+            for (int i = 0; i < keyPos.Count; i++)
             {
                 // Finds the columns headered by this key letter
                 var relevantColumns = colLens.Where(len => len.Value == i)

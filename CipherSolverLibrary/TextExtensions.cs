@@ -28,5 +28,25 @@ namespace CipherSolverLibrary
 
             return output;
         }
+
+        public static string CombineSplitString(this IEnumerable<string> cols)
+        {
+            StringBuilder output = new StringBuilder();
+            int longest = cols.Select(c => c.Length).Max();
+
+            // Read characters across columns and append them to the output
+            for (int r = 0; r < longest; r++)
+            {
+                foreach (string col in cols)
+                {
+                    if (r < col.Length)
+                    {
+                        output.Append(col[r]);
+                    }
+                }
+            }
+
+            return output.ToString();
+        }
     }
 }
