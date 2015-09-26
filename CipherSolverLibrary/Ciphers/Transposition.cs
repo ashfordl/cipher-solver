@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text;
 using CipherSolver.Analysis;
 
-namespace CipherSolverLibrary.Ciphers
+namespace CipherSolver.Ciphers
 {
     public static class Transposition
     {
@@ -66,7 +66,7 @@ namespace CipherSolverLibrary.Ciphers
         {
             if (removeRepeats)
             {
-                key = Alphabet.RemoveDuplicates(key);
+                key = key.RemoveDuplicates();
             }
 
             return Alphabet.StringToNumbers(key);
