@@ -67,30 +67,5 @@ namespace CipherSolver.Analysis
 
             return nums;
         }
-
-        /// <summary>
-        /// Returns a string with repeated characters removed
-        /// </summary>
-        /// <param name="s">The string to remove repeats from</param>
-        public static string RemoveDuplicates(string s)
-        {
-            return new string(s.ToCharArray().Distinct().ToArray());
-        }
-
-        /// <summary>
-        /// Extension method for characters to provide ToUpper functionality
-        /// </summary>
-        public static char ToUpper(this char ch)
-        {
-            return new string(ch, 1).ToUpper()[0];
-        }
-
-        /// <summary>
-        /// Extension method for characters to provide ToLower functionality
-        /// </summary>
-        public static char ToLower(this char ch)
-        {
-            return new string(ch, 1).ToLower()[0];
-        }
     }
 }
