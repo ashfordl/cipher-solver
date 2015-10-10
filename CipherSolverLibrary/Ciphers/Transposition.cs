@@ -18,11 +18,11 @@ namespace CipherSolverLibrary.Ciphers
             // Finds the order to read columns (eg tomato = 421042)
             var keyPos = keyData.Select((val, ind) => orderedKey.IndexOf(val)).ToList();
 
-            string[] cols = plaintext.SplitByNth(key.Length);
+            string[] cols = plaintext.SplitByNth(keyData.Count);
             StringBuilder output = new StringBuilder();
 
             // Loop through each unique key value
-            for (int k = 0; k < key.Length; k++)
+            for (int k = 0; k < keyData.Count; k++)
             {
                 // Select columns with this key letter
                 var relevantCols = cols.Where((c, i) => keyPos[i] == k)
