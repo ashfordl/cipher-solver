@@ -57,5 +57,22 @@ namespace CipherSolver.Ciphers
 
             return output;
         }
+
+        /// <summary>
+        /// Decrpyts the ciphertext with every possible caesar cipher
+        /// </summary>
+        /// <param name="ciphertext">The ciphertext</param>
+        /// <returns>A list of the decryptions, where the index is the shift</returns>
+        public static List<string> DecryptAll(string ciphertext)
+        {
+            List<string> output = new List<string>();
+
+            for (int i = 0; i < 26; i++)
+            {
+                output.Add(Caesar.Decrypt(ciphertext, i));
+            }
+
+            return output;
+        }
     }
 }

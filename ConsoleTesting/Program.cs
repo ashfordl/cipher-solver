@@ -10,15 +10,20 @@ namespace ConsoleTesting
     {
         static void Main(string[] args)
         {
-            string text = "we have been discovered flee at once";
+            string text = Console.ReadLine();
 
-            foreach (string s in Frequency.BIGRAMS)
+            var decrypted = Caesar.DecryptAll(text);
+
+            for (int i = 0; i < 26; i++)
             {
-                Console.WriteLine(s);
+                Console.WriteLine(decrypted[i]);
+                Console.WriteLine(i);
+
+                Console.WriteLine("\n\n\n");
+                Console.ReadKey();
             }
 
-            // Console.WriteLine(Caesar.Encrypt("abc", -3));
-
+            Console.WriteLine("Press any key to exit");
             Console.ReadKey();
         }
     }
