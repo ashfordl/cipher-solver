@@ -48,6 +48,7 @@
     <Compile Include="Analysis\Alphabet.cs" />
     <Compile Include="Analysis\Frequency.cs" />
     <Compile Include="Ciphers\Caesar.cs" />
+    <Compile Include="Ciphers\Polyalphabetic.cs" />
     <Compile Include="Ciphers\RailFence.cs" />
     <Compile Include="Ciphers\Substitution.cs" />
     <Compile Include="Ciphers\Transposition.cs" />
