@@ -13,14 +13,14 @@ namespace CipherSolverTests
     public class PolyalphabeticTests
     {
         [TestMethod]
-        public void Encrypt()
+        public void EncryptTest()
         {
             Assert.AreEqual(Polyalphabetic.Encrypt("attackatdawn", "lemon"),
-                "LXFOPVEFRNHR");
+                "LXFOPVEFRNHR");    
         }
 
         [TestMethod]
-        public void Decrypt()
+        public void DecryptTest()
         {
             Assert.AreEqual(Polyalphabetic.Decrypt("LXFOPVEFRNHR", "lemon"),
                 "attackatdawn");
