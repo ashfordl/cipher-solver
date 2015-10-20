@@ -108,5 +108,13 @@ namespace ManualGui
             string plainText = Polyalphabetic.Decrypt(cipherText, key);
             this.PlainTextBox.Text = plainText;
         }
+
+        private void RailFenceDecrypt_Click(object sender, RoutedEventArgs e)
+        {
+            string cipherText = this.CipherTextBox.Text;
+            int shift = (int)this.RailfenceUpDownBox.Value;
+            string plainText = RailFence.Decrypt(cipherText, shift);
+            this.PlainTextBox.Text = plainText;
+        }
     }
 }
