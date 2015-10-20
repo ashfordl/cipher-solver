@@ -14,8 +14,8 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
             <ColumnDefinition Width="0*"/>
@@ -30,7 +30,7 @@
         <Button Name="CaesarDecrypt" Grid.Row="1" VerticalAlignment="Bottom" Margin="5,0,5,5" Click="CaesarDecrypt_Click">Decrypt</Button>
         <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5">Polyalphabetic Keyword:</TextBlock>
         <TextBox Name="PolyalphabeticKey" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="140,5" Width="100"/>
-        <Button Name="PolyalphabeticDecrypt" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="5">Decrypt</Button>
+        <Button Name="PolyalphabeticDecrypt" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="5" Click="PolyalphabeticDecrypt_Click">Decrypt</Button>
         <TextBlock Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5">Railfence Size:</TextBlock>
         <xctk:IntegerUpDown Name="RailfenceUpDownBox" Value="3" Increment="1" Minimum="0" Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100,5"/>
         <Button Name="RailFenceDecrypt" Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="5">Decrypt</Button>

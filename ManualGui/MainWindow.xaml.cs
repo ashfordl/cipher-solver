@@ -100,5 +100,13 @@ namespace ManualGui
             string plainText = Caesar.Decrypt(cipherText, shift);
             this.PlainTextBox.Text = plainText;
         }
+
+        private void PolyalphabeticDecrypt_Click(object sender, RoutedEventArgs e)
+        {
+            string cipherText = this.CipherTextBox.Text;
+            string key = this.PolyalphabeticKey.Text;
+            string plainText = Polyalphabetic.Decrypt(cipherText, key);
+            this.PlainTextBox.Text = plainText;
+        }
     }
 }
