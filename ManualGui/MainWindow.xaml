@@ -37,7 +37,7 @@
         <TextBlock Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5">Encryption Key:</TextBlock>
         <TextBox Name="TranspositionKey" Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,5" Width="100"/>
         <CheckBox Name="TranspositionRemoveRepeats" Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" FlowDirection="LeftToRight" IsChecked="True" Margin="5">Remove Repeats</CheckBox>
-        <Button Name="TranspositionDecrypt" Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="5">Decrypt</Button>
+        <Button Name="TranspositionDecrypt" Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="5" Click="TranspositionDecrypt_Click">Decrypt</Button>
         <Grid Grid.Column="4" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>

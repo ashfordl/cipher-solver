@@ -116,5 +116,14 @@ namespace ManualGui
             string plainText = RailFence.Decrypt(cipherText, shift);
             this.PlainTextBox.Text = plainText;
         }
+
+        private void TranspositionDecrypt_Click(object sender, RoutedEventArgs e)
+        {
+            string cipherText = this.CipherTextBox.Text;
+            string key = this.TranspositionKey.Text;
+            bool removeRepeats = (bool)this.TranspositionRemoveRepeats.IsChecked;
+            string plainText = Transposition.Decrypt(cipherText, key, removeRepeats);
+            this.PlainTextBox.Text = plainText;
+        }
     }
 }
