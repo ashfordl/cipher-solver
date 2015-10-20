@@ -125,5 +125,26 @@ namespace ManualGui
             string plainText = Transposition.Decrypt(cipherText, key, removeRepeats);
             this.PlainTextBox.Text = plainText;
         }
+
+        private void GetFrequencies_Click(object sender, RoutedEventArgs e)
+        {
+            this.TextFreqTable.DataContext = Frequency.Analyse(this.CipherTextBox.Text);
+        }
+
+        private void Substitute_Click(object sender, RoutedEventArgs e)
+        {
+            string cipherText = this.CipherTextBox.Text;
+            cipherText = cipherText.ToUpper();
+            foreach (var item in this.SubstitutionTable.ItemsSource)
+            {
+                SubstitutionTemplate s = item as SubstitutionTemplate;
+                if (s.Replace.Length == 1)
+                {
+                    cipherText = cipherText.Replace(s.Original, s.Replace.ToLower()[0]);
+                }
+            }
+
+            this.PlainTextBox.Text = cipherText;
+        }
     }
 }

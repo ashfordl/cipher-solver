@@ -75,8 +75,8 @@
                     </DataGridTextColumn>
                 </DataGrid.Columns>
             </DataGrid>
-            <Button Name="GetFrequencies" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="5">Get Frequencies</Button>
-            <Button Name="Substitute" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="5">Substitute</Button>
+            <Button Name="GetFrequencies" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="5" Click="GetFrequencies_Click">Get Frequencies</Button>
+            <Button Name="Substitute" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="5" Click="Substitute_Click">Substitute</Button>
         </Grid>
         <ComboBox Name="CipherTypeComboBox" Grid.ColumnSpan="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="80,4" Width="155">
             <ComboBoxItem Selected="Caesar_Selected" IsSelected="True">Caesar Shift</ComboBoxItem>
