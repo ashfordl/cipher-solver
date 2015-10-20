@@ -16,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CipherSolver.Analysis;
+using CipherSolver.Ciphers;
 
 namespace ManualGui
 {
@@ -90,6 +91,14 @@ namespace ManualGui
             this.TextFreqTable.DataContext = textFrequencies;
             this.SubstitutionTable.ItemsSource = substitutions;
             this.SubstitutionTable.CanUserAddRows = false;
+        }
+
+        private void CaesarDecrypt_Click(object sender, RoutedEventArgs e)
+        {
+            string cipherText = this.CipherTextBox.Text;
+            int shift = (int)this.CaesarUpDownBox.Value;
+            string plainText = Caesar.Decrypt(cipherText, shift);
+            this.PlainTextBox.Text = plainText;
         }
     }
 }

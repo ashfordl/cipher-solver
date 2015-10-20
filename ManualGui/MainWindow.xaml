@@ -27,7 +27,7 @@
         <Button Name="RemoveSpaces" Width="100" Grid.ColumnSpan="5" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,5,5">Remove Spaces</Button>
         <TextBlock Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5">Caesar Shift Size:</TextBlock>
         <xctk:IntegerUpDown Name="CaesarUpDownBox" Value="3" Increment="1" Maximum="26" Minimum="0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100,5"/>
-        <Button Name="CaesarDecrypt" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="5">Decrypt</Button>
+        <Button Name="CaesarDecrypt" Grid.Row="1" VerticalAlignment="Bottom" Margin="5,0,5,5" Click="CaesarDecrypt_Click">Decrypt</Button>
         <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5">Polyalphabetic Keyword:</TextBlock>
         <TextBox Name="PolyalphabeticKey" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="140,5" Width="100"/>
         <Button Name="PolyalphabeticDecrypt" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="5">Decrypt</Button>
