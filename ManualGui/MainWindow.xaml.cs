@@ -215,7 +215,7 @@ namespace ManualGui
             if (sfd.FileName != string.Empty)
             {
                 // Construct string of data
-                string data = string.Format("{0}\r\n\r\nWas decrypted to:\r\n\r\n{1}", CipherTextBox.Text, PlainTextBox.Text);
+                string data = string.Format("{0}\r\n\r\nWas decrypted to:\r\n\r\n{1}", CipherTextBox.Text.ToUpper(), PlainTextBox.Text);
                 File.WriteAllText(sfd.FileName, data);
                 MessageBox.Show(this, "Saved file!");
             }
