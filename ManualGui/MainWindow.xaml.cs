@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,7 +18,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CipherSolver.Analysis;
 using CipherSolver.Ciphers;
-using System.Text.RegularExpressions;
+using Microsoft.Win32;
 
 namespace ManualGui
 {
@@ -177,6 +179,45 @@ namespace ManualGui
             {
                 t.Text = removedSpaces;
                 t.SelectionStart = index - 1;
+            }
+        }
+
+        private void UpperCase_Click(object sender, RoutedEventArgs e)
+        {
+            CipherTextBox.Text = CipherTextBox.Text.ToUpper();
+        }
+
+        private void RemoveSpaces_Click(object sender, RoutedEventArgs e)
+        {
+            CipherTextBox.Text = CipherTextBox.Text.Replace(" ", string.Empty);
+        }
+
+        private void Copy_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(PlainTextBox.Text);
+            MessageBox.Show(this, "Copied!");
+        }
+
+        private void Save_Click(object sender, RoutedEventArgs e)
+        {
+            // Create the save dialog
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.OverwritePrompt = true;
+            sfd.RestoreDirectory = true;
+            sfd.Filter = "Text File|*.txt";
+            sfd.Title = "Save decryption";
+            sfd.FileName = "Decryption";
+
+            // Open the save dialog
+            sfd.ShowDialog(this);
+
+            // Save the file
+            if (sfd.FileName != string.Empty)
+            {
+                // Construct string of data
+                string data = string.Format("{0}\r\n\r\nWas decrypted to:\r\n\r\n{1}", CipherTextBox.Text, PlainTextBox.Text);
+                File.WriteAllText(sfd.FileName, data);
+                MessageBox.Show(this, "Saved file!");
             }
         }
     }
