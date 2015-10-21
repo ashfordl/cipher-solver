@@ -9,7 +9,6 @@ using System.Windows.Controls;
 using System.ComponentModel;
 using System.Windows.Data;
 using System.Windows.Documents;
-using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -17,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using CipherSolver.Analysis;
 using CipherSolver.Ciphers;
+using System.Text.RegularExpressions;
 
 namespace ManualGui
 {
@@ -145,6 +145,39 @@ namespace ManualGui
             }
 
             this.PlainTextBox.Text = cipherText;
+        }
+
+        private void Key_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex r = new Regex("[^a-zA-Z]");
+            if (r.IsMatch(e.Text))
+            {
+                MessageBox.Show(this, "Keys can only contain alphabetic letters!");
+                e.Handled = true;
+            }
+        }
+
+        private void Key_Pasting(object sender, DataObjectPastingEventArgs e)
+        {
+            Regex r = new Regex("[^a-zA-Z]");
+            if (r.IsMatch(e.DataObject.GetData(typeof(string)).ToString()))
+            {
+                MessageBox.Show(this, "Keys can only contain alphabetic letters!");
+                e.CancelCommand();
+            }
+        }
+
+        private void Key_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox t = sender as TextBox;
+            int index = t.SelectionStart;
+            string text = t.Text;
+            string removedSpaces = text.Replace(" ", string.Empty);
+            if (text != removedSpaces)
+            {
+                t.Text = removedSpaces;
+                t.SelectionStart = index - 1;
+            }
         }
     }
 }
