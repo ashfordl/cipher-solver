@@ -1,0 +1,93 @@
+﻿<Window x:Class="ManualGui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:ManualGui"
+        mc:Ignorable="d"
+        Title="Cipher Decrypter" MinWidth="460" Width="460" MinHeight="500" Height="500" Background="WhiteSmoke">
+    <Grid Name="ContentGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Margin="5" Grid.ColumnSpan="5">Cipher Text:</TextBlock>
+        <TextBox Name="CipherTextBox" Grid.ColumnSpan="5" Margin="5,21,5,30"/>
+        <TextBlock Grid.ColumnSpan="5" VerticalAlignment="Bottom" Margin="5,7">Cipher Type:</TextBlock>
+        <Button Name="UpperCase" Width="80" Grid.ColumnSpan="5" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,115,5" Click="UpperCase_Click">Upper Case</Button>
+        <Button Name="RemoveSpaces" Width="100" Grid.ColumnSpan="5" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,5,5" Click="RemoveSpaces_Click">Remove Spaces</Button>
+        <TextBlock Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5">Caesar Shift Size:</TextBlock>
+        <xctk:IntegerUpDown Name="CaesarUpDownBox" Value="3" Increment="1" Maximum="26" Minimum="0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100,5"/>
+        <Button Name="CaesarDecrypt" Grid.Row="1" VerticalAlignment="Bottom" Margin="5,0,5,5" Click="CaesarDecrypt_Click">Decrypt</Button>
+        <TextBlock Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5">Polyalphabetic Keyword:</TextBlock>
+        <TextBox Name="PolyalphabeticKey" Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="140,5" Width="100"  PreviewTextInput="Key_PreviewTextInput" DataObject.Pasting="Key_Pasting" TextChanged="Key_TextChanged"/>
+        <Button Name="PolyalphabeticDecrypt" Grid.Column="1" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="5" Click="PolyalphabeticDecrypt_Click">Decrypt</Button>
+        <TextBlock Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5">Railfence Size:</TextBlock>
+        <xctk:IntegerUpDown Name="RailfenceUpDownBox" Value="3" Increment="1" Minimum="0" Grid.Column="2" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="100,5"/>
+        <Button Name="RailFenceDecrypt" Grid.Column="2" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="5" Click="RailFenceDecrypt_Click">Decrypt</Button>
+        <TextBlock Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5">Encryption Key:</TextBlock>
+        <TextBox Name="TranspositionKey" Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="90,5" Width="100" PreviewTextInput="Key_PreviewTextInput" DataObject.Pasting="Key_Pasting" TextChanged="Key_TextChanged"/>
+        <CheckBox Name="TranspositionRemoveRepeats" Grid.Column="3" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Right" FlowDirection="LeftToRight" IsChecked="True" Margin="5">Remove Repeats</CheckBox>
+        <Button Name="TranspositionDecrypt" Grid.Column="3" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="5" Click="TranspositionDecrypt_Click">Decrypt</Button>
+        <Grid Grid.Column="4" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5">Normal Frequencies:</TextBlock>
+            <TextBlock Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5">Frequencies in Text:</TextBlock>
+            <TextBlock Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="5">Subsitutions:</TextBlock>
+            <DataGrid Name="DefaultFreqTable" Margin="5,25,5,5" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Letter" IsReadOnly="True"  Binding="{Binding Key}"/>
+                    <DataGridTextColumn Header="Occurance" IsReadOnly="True" Binding="{Binding Value}" Width="1*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid Name="TextFreqTable" Grid.Column="1" Margin="5,25,5,5" ItemsSource="{Binding}" CanUserReorderColumns="False" CanUserResizeColumns="False" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Letter" IsReadOnly="True" Binding="{Binding Key}"/>
+                    <DataGridTextColumn Header="Occurance" IsReadOnly="True" Binding="{Binding Value}" Width="1*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid Name="SubstitutionTable" ItemsSource="{Binding}" Grid.Column="2" Margin="5,25,5,5" CanUserReorderColumns="False" CanUserResizeColumns="False" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Original" IsReadOnly="True" Binding="{Binding Path=Original}" Width="1*"/>
+                    <DataGridTextColumn Header="Replace" IsReadOnly="False" Binding="{Binding Path=Replace}" Width="1*">
+                        <DataGridTextColumn.EditingElementStyle>
+                            <Style TargetType="TextBox">
+                                <Setter Property="MaxLength" Value="1"/>
+                            </Style>
+                        </DataGridTextColumn.EditingElementStyle>
+                    </DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Name="GetFrequencies" Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="5" Click="GetFrequencies_Click">Get Frequencies</Button>
+            <Button Name="Substitute" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="5" Click="Substitute_Click">Substitute</Button>
+        </Grid>
+        <ComboBox Name="CipherTypeComboBox" Grid.ColumnSpan="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="80,4" Width="155">
+            <ComboBoxItem Selected="Caesar_Selected" IsSelected="True">Caesar Shift</ComboBoxItem>
+            <ComboBoxItem Selected="Polyalphabetic_Selected">Polyalphabetic</ComboBoxItem>
+            <ComboBoxItem Selected="Railfence_Selected">Railfence</ComboBoxItem>
+            <ComboBoxItem Selected="Transposition_Selected">Columnar Transposition</ComboBoxItem>
+            <ComboBoxItem Selected="Substitution_Selected">Subsitution</ComboBoxItem>
+        </ComboBox>
+        <TextBlock Grid.ColumnSpan="5" Grid.Row="2" Margin="5">Plain Text:</TextBlock>
+        <TextBox Name="PlainTextBox" Grid.ColumnSpan="5" Grid.Row="2" Margin="5,21,5,30" IsReadOnly="True"/>
+        <Button Name="Copy" Grid.ColumnSpan="2" Grid.Row="2" Width="50" HorizontalAlignment="Left"  Margin="5" Height="20" VerticalAlignment="Bottom" Click="Copy_Click">Copy</Button>
+        <Button Name="Save" Grid.ColumnSpan="5" Grid.Row="2" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="5" Click="Save_Click">Save</Button>
+    </Grid>
+</Window>
