@@ -6,13 +6,17 @@ A series of tools and libraries written in C# to aid with cryptography and crypt
 
 ### Curently Implemented
 - Railfence cipher
+- Caesar shift
+- Columnar transposition cipher
+- Polyalphabetic cipher
+- Analysis tools:
+  - Frequency analysis
+  - Bigrams
+- GUI applications:
+  - Manual solving
 
 ### To Do
 - Solution verification (i.e. ensuring that the decrypted message appears to be good English)
-- Other ciphers
-  - Caesar shift
-  - Affine shift
-  - Columnar transposition cipher
-- Other useful tools, such as 5-bit binary encoding, ASCII encoding, frequency analysis
-- Auto-deciphering
-- Manual substitution
+- Other useful tools, such as 5-bit binary encoding, ASCII encoding
+- GUIs
+  - Auto-solving
