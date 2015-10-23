@@ -6,7 +6,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:ManualGui"
         mc:Ignorable="d"
-        Title="Cipher Decrypter" MinWidth="460" Width="460" MinHeight="500" Height="500" Background="WhiteSmoke">
+        Title="Cipher Decrypter" MinWidth="465" Width="465" MinHeight="500" Height="500" Background="WhiteSmoke">
     <Grid Name="ContentGrid">
         <!-- Row and column definitions for the grid -->
         <Grid.RowDefinitions>
@@ -26,8 +26,8 @@
         <TextBlock Margin="5" Grid.ColumnSpan="5">Cipher Text:</TextBlock>
         <TextBox Name="CipherTextBox" Grid.ColumnSpan="5" Margin="5,21,5,30" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
         <TextBlock Grid.ColumnSpan="5" VerticalAlignment="Bottom" Margin="5,7">Cipher Type:</TextBlock>
-        <Button Name="UpperCase" Width="80" Grid.ColumnSpan="5" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,115,5" Click="UpperCase_Click">Upper Case</Button>
-        <Button Name="RemoveSpaces" Width="100" Grid.ColumnSpan="5" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,5,5" Click="RemoveSpaces_Click">Remove Spaces</Button>
+        <Button Name="UpperCase" Width="80" Grid.ColumnSpan="5" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,125,5" Click="UpperCase_Click">Upper Case</Button>
+        <Button Name="StripPunctuation" Width="110" Grid.ColumnSpan="5" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,5,5" Click="StripPunctuation_Click">Strip Punctuation</Button>
 
         <!-- Elements for Caesar decryption -->
         <TextBlock Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="5">Caesar Shift Size:</TextBlock>

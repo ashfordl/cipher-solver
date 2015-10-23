@@ -175,9 +175,10 @@ namespace ManualGui
             CipherTextBox.Text = CipherTextBox.Text.ToUpper();
         }
 
-        private void RemoveSpaces_Click(object sender, RoutedEventArgs e)
+        private void StripPunctuation_Click(object sender, RoutedEventArgs e)
         {
-            CipherTextBox.Text = CipherTextBox.Text.Replace(" ", string.Empty);
+            Regex r = new Regex("[^a-zA-Z]");
+            CipherTextBox.Text = r.Replace(CipherTextBox.Text, string.Empty);
         }
 
         private void Copy_Click(object sender, RoutedEventArgs e)
