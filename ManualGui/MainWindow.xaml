@@ -110,7 +110,7 @@
         <!-- Elements for the plain text at the bottom of the window -->
         <TextBlock Grid.ColumnSpan="5" Grid.Row="2" Margin="5">Plain Text:</TextBlock>
         <TextBox Name="PlainTextBox" Grid.ColumnSpan="5" Grid.Row="2" Margin="5,21,5,30" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-        <Button Name="Copy" Grid.ColumnSpan="2" Grid.Row="2" Width="50" HorizontalAlignment="Left"  Margin="5" Height="20" VerticalAlignment="Bottom" Click="Copy_Click">Copy</Button>
+        <Button Name="Copy" Grid.ColumnSpan="5" Grid.Row="2" Width="50" HorizontalAlignment="Left"  Margin="5" Height="20" VerticalAlignment="Bottom" Click="Copy_Click">Copy</Button>
         <Button Name="Save" Grid.ColumnSpan="5" Grid.Row="2" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="5" Click="Save_Click">Save</Button>
     </Grid>
 </Window>
