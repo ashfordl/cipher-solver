@@ -98,6 +98,12 @@
             <Button Name="Substitute" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="5" Click="Substitute_Click">Substitute</Button>
         </Grid>
 
+        <!-- Elements for the plain text at the bottom of the window -->
+        <TextBlock Grid.ColumnSpan="5" Grid.Row="2" Margin="5">Plain Text:</TextBlock>
+        <TextBox Name="PlainTextBox" FontFamily="Courier New" Grid.ColumnSpan="5" Grid.Row="2" Margin="5,21,5,30" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+        <Button Name="Copy" Grid.ColumnSpan="5" Grid.Row="2" Width="50" HorizontalAlignment="Left"  Margin="5" Height="20" VerticalAlignment="Bottom" Click="Copy_Click">Copy</Button>
+        <Button Name="Save" Grid.ColumnSpan="5" Grid.Row="2" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="5" Click="Save_Click">Save</Button>
+
         <!-- Combo box to select decryption tool -->
         <ComboBox Name="CipherTypeComboBox" Grid.ColumnSpan="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="80,4" Width="155">
             <ComboBoxItem Selected="Caesar_Selected" IsSelected="True">Caesar Shift</ComboBoxItem>
@@ -106,11 +112,5 @@
             <ComboBoxItem Selected="Transposition_Selected">Columnar Transposition</ComboBoxItem>
             <ComboBoxItem Selected="Substitution_Selected">Subsitution</ComboBoxItem>
         </ComboBox>
-
-        <!-- Elements for the plain text at the bottom of the window -->
-        <TextBlock Grid.ColumnSpan="5" Grid.Row="2" Margin="5">Plain Text:</TextBlock>
-        <TextBox Name="PlainTextBox" FontFamily="Courier New" Grid.ColumnSpan="5" Grid.Row="2" Margin="5,21,5,30" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-        <Button Name="Copy" Grid.ColumnSpan="5" Grid.Row="2" Width="50" HorizontalAlignment="Left"  Margin="5" Height="20" VerticalAlignment="Bottom" Click="Copy_Click">Copy</Button>
-        <Button Name="Save" Grid.ColumnSpan="5" Grid.Row="2" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="5" Click="Save_Click">Save</Button>
     </Grid>
 </Window>

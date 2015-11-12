@@ -32,6 +32,8 @@ namespace ManualGui
                 int value = i == fullWidthIndex ? 1 : 0;
                 this.ContentGrid.ColumnDefinitions[i].Width = new GridLength(value, GridUnitType.Star);
             }
+
+            this.PlainTextBox.Text = string.Empty;
         }
 
         private void Caesar_Selected(object sender, RoutedEventArgs e)
