@@ -7,6 +7,7 @@ using System.Windows.Input;
 using CipherSolver.Analysis;
 using CipherSolver.Ciphers;
 using Microsoft.Win32;
+using System.Reflection;
 
 namespace ManualGui
 {
@@ -69,7 +70,11 @@ namespace ManualGui
         {
             this.ChangeDisplay(4);
             this.ContentGrid.RowDefinitions[1].Height = new GridLength(1, GridUnitType.Star);
+            this.ResetSubstitutionData();
+        }
 
+        private void ResetSubstitutionData()
+        {
             // Get data
             Dictionary<char, int> textFrequencies = new Dictionary<char, int>();
             List<SubstitutionTemplate> substitutions = new List<SubstitutionTemplate>();
@@ -187,6 +192,11 @@ namespace ManualGui
         {
             Clipboard.SetText(PlainTextBox.Text);
             MessageBox.Show(this, "Copied!");
+        }
+
+        private void ClearSubstitution_Click(object sender, RoutedEventArgs e)
+        {
+            this.ResetSubstitutionData();
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)
