@@ -24,7 +24,7 @@
 
         <!-- Elements for the cipher text at the top of the window -->
         <TextBlock Margin="5" Grid.ColumnSpan="5">Cipher Text:</TextBlock>
-        <TextBox Name="CipherTextBox" Grid.ColumnSpan="5" Margin="5,21,5,30" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+        <TextBox Name="CipherTextBox" FontFamily="Courier New" Grid.ColumnSpan="5" Margin="5,21,5,30" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
         <TextBlock Grid.ColumnSpan="5" VerticalAlignment="Bottom" Margin="5,7">Cipher Type:</TextBlock>
         <Button Name="UpperCase" Width="80" Grid.ColumnSpan="5" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,125,5" Click="UpperCase_Click">Upper Case</Button>
         <Button Name="StripPunctuation" Width="110" Grid.ColumnSpan="5" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,5,5" Click="StripPunctuation_Click">Strip Punctuation</Button>
@@ -109,7 +109,7 @@
 
         <!-- Elements for the plain text at the bottom of the window -->
         <TextBlock Grid.ColumnSpan="5" Grid.Row="2" Margin="5">Plain Text:</TextBlock>
-        <TextBox Name="PlainTextBox" Grid.ColumnSpan="5" Grid.Row="2" Margin="5,21,5,30" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+        <TextBox Name="PlainTextBox" FontFamily="Courier New" Grid.ColumnSpan="5" Grid.Row="2" Margin="5,21,5,30" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
         <Button Name="Copy" Grid.ColumnSpan="5" Grid.Row="2" Width="50" HorizontalAlignment="Left"  Margin="5" Height="20" VerticalAlignment="Bottom" Click="Copy_Click">Copy</Button>
         <Button Name="Save" Grid.ColumnSpan="5" Grid.Row="2" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="5" Click="Save_Click">Save</Button>
     </Grid>
