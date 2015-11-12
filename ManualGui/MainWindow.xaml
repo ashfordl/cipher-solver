@@ -80,7 +80,7 @@
                     <DataGridTextColumn Header="Occurance" IsReadOnly="True" Binding="{Binding Value}" Width="1*"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid Name="SubstitutionTable" ItemsSource="{Binding}" Grid.Column="2" Margin="5,25,5,5" CanUserReorderColumns="False" CanUserResizeColumns="False" AutoGenerateColumns="False">
+            <DataGrid Name="SubstitutionTable" ItemsSource="{Binding}" Grid.Column="2" Margin="5,25,5,5" CanUserReorderColumns="False" CanUserResizeColumns="False" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Original" IsReadOnly="True" Binding="{Binding Path=Original}" Width="1*"/>
                     <DataGridTextColumn Header="Replace" IsReadOnly="False" Binding="{Binding Path=Replace}" Width="1*">
