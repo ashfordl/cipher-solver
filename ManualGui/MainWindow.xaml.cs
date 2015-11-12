@@ -7,7 +7,6 @@ using System.Windows.Input;
 using CipherSolver.Analysis;
 using CipherSolver.Ciphers;
 using Microsoft.Win32;
-using System.Reflection;
 
 namespace ManualGui
 {
@@ -81,7 +80,7 @@ namespace ManualGui
             for (int i = 0; i < 26; i++)
             {
                 textFrequencies.Add(Alphabet.LetterAt(i, true), 0);
-                substitutions.Add(new SubstitutionTemplate() { Original = Alphabet.LetterAt(i, true), Replace = string.Empty });
+                substitutions.Add(new SubstitutionTemplate() { Index = i, Original = Alphabet.LetterAt(i, true), Replace = string.Empty });
             }
 
             // Bind to data tables

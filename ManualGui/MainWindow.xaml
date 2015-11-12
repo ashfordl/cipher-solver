@@ -82,8 +82,9 @@
             </DataGrid>
             <DataGrid Name="SubstitutionTable" ItemsSource="{Binding}" Grid.Column="2" Margin="5,25,5,5" CanUserReorderColumns="False" CanUserResizeColumns="False" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Original" IsReadOnly="True" Binding="{Binding Path=Original}" Width="1*"/>
-                    <DataGridTextColumn Header="Replace" IsReadOnly="False" Binding="{Binding Path=Replace}" Width="1*">
+                    <DataGridTextColumn Header="Index" IsReadOnly="True" Binding="{Binding Path=Index}" Width="1*"/>
+                    <DataGridTextColumn Header="Original" IsReadOnly="True" Binding="{Binding Path=Original}" Width="2*"/>
+                    <DataGridTextColumn Header="Replace" IsReadOnly="False" Binding="{Binding Path=Replace}" Width="2*">
                         <DataGridTextColumn.EditingElementStyle>
                             <Style TargetType="TextBox">
                                 <Setter Property="MaxLength" Value="1"/>
