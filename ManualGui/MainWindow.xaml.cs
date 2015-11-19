@@ -7,6 +7,7 @@ using System.Windows.Input;
 using CipherSolver.Analysis;
 using CipherSolver.Ciphers;
 using Microsoft.Win32;
+using System;
 
 namespace ManualGui
 {
@@ -101,8 +102,17 @@ namespace ManualGui
         {
             string cipherText = this.CipherTextBox.Text;
             string key = this.PolyalphabeticKey.Text;
-            string plainText = Polyalphabetic.Decrypt(cipherText, key);
-            this.PlainTextBox.Text = plainText;
+
+            try
+            {
+                string plainText = Polyalphabetic.Decrypt(cipherText, key);
+                this.PlainTextBox.Text = plainText;
+            }
+            catch (Exception ex)
+            {
+                this.PlainTextBox.Text = string.Empty;
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void RailFenceDecrypt_Click(object sender, RoutedEventArgs e)
