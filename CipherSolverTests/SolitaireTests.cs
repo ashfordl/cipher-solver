@@ -10,26 +10,26 @@ namespace CipherSolverTests
         public void EncryptTest()
         {
             Deck d = new Deck();
-            Assert.AreEqual("EXKYIZSGEH", Solitaire.Encrypt("AAAAAAAAAA", d));
+            Assert.AreEqual("EXKYIZSGEH", Solitaire.Encrypt("AAAAAAAAAA", ref d));
 
             d = new Deck("foo", false);
-            Assert.AreEqual("ITHZUJIWGRFARMW", Solitaire.Encrypt("AAAAAAAAAAAAAAA", d));
+            Assert.AreEqual("ITHZUJIWGRFARMW", Solitaire.Encrypt("AAAAAAAAAAAAAAA", ref d));
 
             d = new Deck("CRYPTONOMICON", false);
-            Assert.AreEqual("KIRAKSFJAN", Solitaire.Encrypt("SOLITAIREX", d));
+            Assert.AreEqual("KIRAKSFJAN", Solitaire.Encrypt("SOLITAIREX", ref d));
         }
 
         [TestMethod]
         public void DecryptTest()
         {
             Deck d = new Deck();
-            Assert.AreEqual("AAAAAAAAAA", Solitaire.Decrypt("EXKYIZSGEH", d));
+            Assert.AreEqual("aaaaaaaaaa", Solitaire.Decrypt("EXKYIZSGEH", ref d));
 
             d = new Deck("foo", false);
-            Assert.AreEqual("AAAAAAAAAAAAAAA", Solitaire.Decrypt("ITHZUJIWGRFARMW", d));
+            Assert.AreEqual("aaaaaaaaaaaaaaa", Solitaire.Decrypt("ITHZUJIWGRFARMW", ref d));
 
             d = new Deck("CRYPTONOMICON", false);
-            Assert.AreEqual("SOLITAIREX", Solitaire.Decrypt("KIRAKSFJAN", d));
+            Assert.AreEqual("solitairex", Solitaire.Decrypt("KIRAKSFJAN", ref d));
         }
     }
 }
