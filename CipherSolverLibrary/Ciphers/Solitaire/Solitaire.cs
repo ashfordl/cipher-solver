@@ -24,10 +24,10 @@ namespace CipherSolver.Ciphers.Solitaire
         /// </summary>
         /// <param name="d"> The deck to use for the decryption. </param>
         /// <returns>The decrypted message</returns>
-        public static string Decrypt(string plainText, ref Deck d)
+        public static string Decrypt(string cipherText, ref Deck d)
         {
-            string keystream = d.GenerateKeystream(plainText.Length);
-            return Polyalphabetic.Decrypt(plainText, keystream);
+            string keystream = d.GenerateKeystream(cipherText.Length);
+            return Polyalphabetic.Decrypt(cipherText, keystream);
         }
     }
 }
