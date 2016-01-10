@@ -42,9 +42,9 @@ namespace CipherSolver.Ciphers.Solitaire
             }
         }
 
-        List<int> Cards { get; set; }
+        public List<int> Cards { get; set; }
 
-        int JokerA
+        public int JokerA
         {
             get
             {
@@ -52,7 +52,7 @@ namespace CipherSolver.Ciphers.Solitaire
             }
         }
 
-        int JokerB
+        public int JokerB
         {
             get
             {
