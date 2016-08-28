@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CipherSolver", "CipherSolve
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManualGui", "ManualGui\ManualGui.csproj", "{FEA45465-EF87-47BD-8527-831F97C9929A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleSolver", "ConsoleSolver\ConsoleSolver.csproj", "{A1C6FE78-A178-43D3-B74F-541629058684}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{FEA45465-EF87-47BD-8527-831F97C9929A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEA45465-EF87-47BD-8527-831F97C9929A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEA45465-EF87-47BD-8527-831F97C9929A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1C6FE78-A178-43D3-B74F-541629058684}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1C6FE78-A178-43D3-B74F-541629058684}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1C6FE78-A178-43D3-B74F-541629058684}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1C6FE78-A178-43D3-B74F-541629058684}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
