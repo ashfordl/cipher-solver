@@ -9,6 +9,13 @@ namespace ConsoleSolver.Commands
 {
     static class ReadCommand
     {
+        public static void Help()
+        {
+            Console.WriteLine("This command will read the contents of a file and store it as the ciphertext"
+                                + " on which other commands may operate.");
+            Console.WriteLine("Format: read <filepath>\t<filepath> may be relative or absolute. It may not contain spaces.");
+        }
+
         /// <summary>
         /// Reads the contents of the given file and stores in CipherData.CipherText
         /// </summary>
@@ -17,20 +24,11 @@ namespace ConsoleSolver.Commands
         {
             if (args.Count != 2)
             {
-                Console.WriteLine("This command expects 1 argument: the filepath to read the ciphertext from.");
+                Help();
                 return;
             }
 
             string path = args[1];
-
-            if (path.ToUpper() == "-H" || path.ToUpper() == "--HELP")
-            {
-                Console.WriteLine("This command will read the contents of a file and store it as the ciphertext"
-                                +" on which other commands may operate.");
-                Console.WriteLine("Format: read <filepath>\t<filepath> may be relative or absolute.");
-                return;
-            }
-
             string contents = "";
 
             try

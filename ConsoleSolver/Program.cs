@@ -13,6 +13,7 @@ namespace ConsoleSolver
     class Program
     {
         private static Dictionary<string, Command> Commands { get; set; }
+        private static Dictionary<string, Action> Helps { get; set; }
 
         static Program()
         {
@@ -23,10 +24,15 @@ namespace ConsoleSolver
         private static void RegisterCommands()
         {
             Commands = new Dictionary<string, Command>();
+            Helps = new Dictionary<string, Action>();
 
             Commands.Add("read", ReadCommand.Run);
             Commands.Add("ciphertext", CiphertextCommand.Run);
             Commands.Add("cipher",     CiphertextCommand.Run);
+
+            Helps.Add("read", ReadCommand.Help);
+            Helps.Add("ciphertext", CiphertextCommand.Help);
+            Helps.Add("cipher", CiphertextCommand.Help);
         }
 
         static void Main(string[] args)
@@ -53,7 +59,14 @@ namespace ConsoleSolver
 
                 try
                 {
-                    Commands[query[0]](query);
+                    if (query.Count == 2 && query[1].ToUpper() == "-H")
+                    {
+                        Helps[query[0]]();
+                    }
+                    else
+                    {
+                        Commands[query[0]](query);
+                    }
                 }
                 catch (Exception e)
                 {

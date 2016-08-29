@@ -8,6 +8,13 @@ namespace ConsoleSolver.Commands
 {
     static class CiphertextCommand
     {
+        public static void Help()
+        {
+            Console.WriteLine("If no arguments are provided, the current value of the working "
+                                 + "ciphertext will be printed. Alternatively, this value may be updated.");
+            Console.WriteLine("Format: cipher set <new value>\t<new value> may contain any character.");
+        }
+
         /// <summary>
         /// Prints the contents of CipherData.CipherText
         /// </summary>
@@ -36,10 +43,7 @@ namespace ConsoleSolver.Commands
             }
             else
             {
-                Console.WriteLine("If no arguments are provided, the current value of the working "
-                                 +"ciphertext will be printed. Alternatively, this value may be updated.");
-                Console.WriteLine("Format: cipher set <new value>\t<new value> may contain any character.");
-                return;
+                Help();
             }
         }
     }
