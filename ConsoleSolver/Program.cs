@@ -27,11 +27,9 @@ namespace ConsoleSolver
             Helps = new Dictionary<string, Action>();
 
             Commands.Add("read", ReadCommand.Run);
-            Commands.Add("ciphertext", CiphertextCommand.Run);
             Commands.Add("cipher",     CiphertextCommand.Run);
 
             Helps.Add("read", ReadCommand.Help);
-            Helps.Add("ciphertext", CiphertextCommand.Help);
             Helps.Add("cipher", CiphertextCommand.Help);
         }
 
