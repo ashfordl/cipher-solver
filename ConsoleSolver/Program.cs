@@ -57,7 +57,7 @@ namespace ConsoleSolver
 
                 try
                 {
-                    if (query.Count == 2 && query[1].ToUpper() == "-H")
+                    if (query.Count == 2 && query[1].ToUpper() == "-H" && Helps.ContainsKey(query[0]))
                     {
                         Helps[query[0]]();
                     }

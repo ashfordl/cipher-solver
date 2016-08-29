@@ -8,7 +8,7 @@ namespace CipherSolver
     /// <summary>
     /// Contains various extension methods for working with strings and chars
     /// </summary>
-    static class TextExtensions
+    public static class TextExtensions
     {
         /// <summary>
         /// Splits a string by the nth character and returns an array containing every offset substring
