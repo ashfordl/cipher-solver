@@ -19,7 +19,6 @@ namespace ConsoleSolver
             RegisterCommands();
         }
 
-
         private static void RegisterCommands()
         {
             Commands = new Dictionary<string, Command>();
@@ -57,12 +56,12 @@ namespace ConsoleSolver
                 {
                     HandleCommandException(query, e);
                 }
-
-                Console.WriteLine();
-
             }
         }
 
+        /// <summary>
+        /// Splits an input string into separate arguments
+        /// </summary>
         private static List<string> SplitInputString(string input)
         {
             var args = new List<string>();
@@ -73,6 +72,11 @@ namespace ConsoleSolver
             return args;
         }
 
+        /// <summary>
+        /// Handles if a command raises an uncaught exception
+        /// </summary>
+        /// <param name="query">The query inputted</param>
+        /// <param name="e">The exception caught</param>
         private static void HandleCommandException(List<string> query, Exception e)
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -97,6 +101,17 @@ namespace ConsoleSolver
             } while (true);
 
             Console.ForegroundColor = ConsoleColor.Gray;
+        }
+
+        /// <summary>
+        /// Checks if the minimum number of arguments has been passed to the command
+        /// </summary>
+        /// <param name="args">The list of arguments</param>
+        /// <param name="minimum">The minimum number of arguments required (excluding command name)</param>
+        /// <returns>True if the sufficient number of arguments has been provided</returns>
+        public static bool SufficientArgumentsCheck(List<string> args, int minimum)
+        {
+            return args.Count > minimum;
         }
     }
 }
