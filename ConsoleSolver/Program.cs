@@ -17,6 +17,7 @@ namespace ConsoleSolver
         static Program()
         {
             RegisterCommands();
+            CipherData.CipherText = "";
         }
 
         private static void RegisterCommands()
@@ -24,6 +25,8 @@ namespace ConsoleSolver
             Commands = new Dictionary<string, Command>();
 
             Commands.Add("read", ReadCommand.Run);
+            Commands.Add("ciphertext", CiphertextCommand.Run);
+            Commands.Add("cipher",     CiphertextCommand.Run);
         }
 
         static void Main(string[] args)
