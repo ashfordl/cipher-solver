@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using CipherSolver;
 using ConsoleSolver.Commands;
 
 namespace ConsoleSolver
@@ -27,10 +28,12 @@ namespace ConsoleSolver
             Helps = new Dictionary<string, Action>();
 
             Commands.Add("read", ReadCommand.Run);
-            Commands.Add("cipher",     CiphertextCommand.Run);
+            Commands.Add("cipher", CiphertextCommand.Run);
+            Commands.Add("caesar", CaesarCommand.Run);
 
             Helps.Add("read", ReadCommand.Help);
             Helps.Add("cipher", CiphertextCommand.Help);
+            Helps.Add("caesar", CaesarCommand.Help);
         }
 
         static void Main(string[] args)
@@ -96,23 +99,10 @@ namespace ConsoleSolver
             Console.ForegroundColor = ConsoleColor.Red;
 
             Console.WriteLine("\n\n'{0}' command failed with {1}", query[0], e.GetType().ToString());
-            Console.WriteLine("Print debug info? Y/N");
-            do
+            if (AskYesNo("Print debug info? Y/N"))
             {
-                var key = Console.ReadLine().ToString().ToUpper();
-
-                if (key == "Y")
-                {
-                    Console.WriteLine("{1}: {0}\n{2}", e.Message, e.GetType().Name, e.StackTrace);
-                    break;
-                }
-                else if (key == "N")
-                {
-                    break;
-                }
-
-                Console.Write("ok");
-            } while (true);
+                Console.WriteLine("{1}: {0}\n{2}", e.Message, e.GetType().Name, e.StackTrace);
+            }
 
             Console.ForegroundColor = ConsoleColor.Gray;
         }
@@ -126,6 +116,31 @@ namespace ConsoleSolver
         public static bool SufficientArgumentsCheck(List<string> args, int minimum)
         {
             return args.Count > minimum;
+        }
+
+        /// <summary>
+        /// Prints the prompt, and waits for either a Y or N key press.
+        /// </summary>
+        /// <param name="prompt">The prompt for the user</param>
+        /// <returns>True if yes, false if no</returns>
+        public static bool AskYesNo(string prompt = "")
+        {
+            Console.WriteLine(prompt);
+            do
+            {
+                var key = Console.ReadKey().KeyChar.ToUpper();
+
+                if (key == 'Y')
+                {
+                    Console.WriteLine();
+                    return true;
+                }
+                else if (key == 'N')
+                {
+                    Console.WriteLine();
+                    return false;
+                }
+            } while (true);
         }
     }
 }
