@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CipherSolver.Analysis
 {
@@ -85,6 +87,50 @@ namespace CipherSolver.Analysis
             }
 
             return total;
+        }
+
+        /// <summary>
+        /// Ranks a list of plaintexts by how 'English' they are
+        /// </summary>
+        /// <remarks>
+        /// Bigrams are sorted by quantity. Frequency is ranked by how many of the
+        /// top ten English letters are in the top ten letters of the given plaintext.
+        /// Plaintexts are ranked for each of these metrics. The final order is created
+        /// from the mean average of the individual ranks. If two plaintexts are matching,
+        /// their order cannot be guaranteed.
+        /// </remarks>
+        /// <param name="plaintexts">The plaintexts to rank</param>
+        /// <returns>The list of plaintexts sorted by the above methodology, with their stats.</returns>
+        public static List<Tuple<string, int, int>> RankByFreqAndBigrams(List<string> plaintexts)
+        {
+            List<Tuple<string, int, int>> ranked = new List<Tuple<string, int, int>>();
+
+            // The 10 most common letters in ordinary English
+            var top10freqs = Frequency.NATURAL_FREQUENCIES
+                                        .OrderByDescending(k => k.Value)
+                                        .Select(kvp => kvp.Key.ToUpper())
+                                        .Take(10);
+
+            foreach (string plain in plaintexts)
+            {
+                var freqs = Analyse(plain)
+                                .OrderByDescending(k => k.Value)            // Sort by descending frequency
+                                .Take(10)                                   // Take the 10 most freq letters
+                                .Where(kvp => kvp.Value > 0)                // Remove any letters with no counts
+                                .Select(kvp => kvp.Key)                     // Throw away the countign data
+                                .Where(letter => top10freqs.Contains(letter))   // Remove any letter not
+                                .Count();                                       // appearing in English
+                                                                                // top 10 letters
+
+                ranked.Add(new Tuple<string, int, int>(plain, freqs, CountBigrams(plain)));
+            }
+
+            // The letter frequency score (Item2) is multiplied by 3, so it becomes a score out
+            //  of 30 instead of 10, so that it can be weighted 50/50 with the bigrams score
+            ranked = ranked.OrderByDescending(t => (t.Item2 * 3) + t.Item3)
+                           .ToList();
+
+            return ranked;
         }
     }
 }
