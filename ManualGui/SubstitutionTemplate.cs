@@ -4,6 +4,7 @@ namespace ManualGui
 {
     public class SubstitutionTemplate
     {
+        public int Index { get; set; }
         public char Original { get; set; }
 
         private string __replace { get; set; }
