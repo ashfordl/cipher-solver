@@ -7,6 +7,7 @@ using System.Windows.Input;
 using CipherSolver.Analysis;
 using CipherSolver.Ciphers;
 using Microsoft.Win32;
+using System;
 
 namespace ManualGui
 {
@@ -32,6 +33,8 @@ namespace ManualGui
                 int value = i == fullWidthIndex ? 1 : 0;
                 this.ContentGrid.ColumnDefinitions[i].Width = new GridLength(value, GridUnitType.Star);
             }
+
+            this.PlainTextBox.Text = string.Empty;
         }
 
         private void Caesar_Selected(object sender, RoutedEventArgs e)
@@ -67,14 +70,18 @@ namespace ManualGui
         {
             this.ChangeDisplay(4);
             this.ContentGrid.RowDefinitions[1].Height = new GridLength(1, GridUnitType.Star);
+            this.ResetSubstitutionData();
+        }
 
+        private void ResetSubstitutionData()
+        {
             // Get data
             Dictionary<char, int> textFrequencies = new Dictionary<char, int>();
             List<SubstitutionTemplate> substitutions = new List<SubstitutionTemplate>();
             for (int i = 0; i < 26; i++)
             {
                 textFrequencies.Add(Alphabet.LetterAt(i, true), 0);
-                substitutions.Add(new SubstitutionTemplate() { Original = Alphabet.LetterAt(i, true), Replace = string.Empty });
+                substitutions.Add(new SubstitutionTemplate() { Index = i, Original = Alphabet.LetterAt(i, true), Replace = string.Empty });
             }
 
             // Bind to data tables
@@ -95,8 +102,17 @@ namespace ManualGui
         {
             string cipherText = this.CipherTextBox.Text;
             string key = this.PolyalphabeticKey.Text;
-            string plainText = Polyalphabetic.Decrypt(cipherText, key);
-            this.PlainTextBox.Text = plainText;
+
+            try
+            {
+                string plainText = Polyalphabetic.Decrypt(cipherText, key);
+                this.PlainTextBox.Text = plainText;
+            }
+            catch (Exception ex)
+            {
+                this.PlainTextBox.Text = string.Empty;
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void RailFenceDecrypt_Click(object sender, RoutedEventArgs e)
@@ -185,6 +201,11 @@ namespace ManualGui
         {
             Clipboard.SetText(PlainTextBox.Text);
             MessageBox.Show(this, "Copied!");
+        }
+
+        private void ClearSubstitution_Click(object sender, RoutedEventArgs e)
+        {
+            this.ResetSubstitutionData();
         }
 
         private void Save_Click(object sender, RoutedEventArgs e)

@@ -50,6 +50,8 @@
     <Compile Include="Ciphers\Caesar.cs" />
     <Compile Include="Ciphers\Polyalphabetic.cs" />
     <Compile Include="Ciphers\RailFence.cs" />
+    <Compile Include="Ciphers\Solitaire\Deck.cs" />
+    <Compile Include="Ciphers\Solitaire\Solitaire.cs" />
     <Compile Include="Ciphers\Substitution.cs" />
     <Compile Include="Ciphers\Transposition.cs" />
     <Compile Include="FileReader.cs" />

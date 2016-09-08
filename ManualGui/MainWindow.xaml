@@ -24,7 +24,7 @@
 
         <!-- Elements for the cipher text at the top of the window -->
         <TextBlock Margin="5" Grid.ColumnSpan="5">Cipher Text:</TextBlock>
-        <TextBox Name="CipherTextBox" Grid.ColumnSpan="5" Margin="5,21,5,30" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+        <TextBox Name="CipherTextBox" FontFamily="Courier New" Grid.ColumnSpan="5" Margin="5,21,5,30" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
         <TextBlock Grid.ColumnSpan="5" VerticalAlignment="Bottom" Margin="5,7">Cipher Type:</TextBlock>
         <Button Name="UpperCase" Width="80" Grid.ColumnSpan="5" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,125,5" Click="UpperCase_Click">Upper Case</Button>
         <Button Name="StripPunctuation" Width="110" Grid.ColumnSpan="5" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="0,0,5,5" Click="StripPunctuation_Click">Strip Punctuation</Button>
@@ -80,10 +80,11 @@
                     <DataGridTextColumn Header="Occurance" IsReadOnly="True" Binding="{Binding Value}" Width="1*"/>
                 </DataGrid.Columns>
             </DataGrid>
-            <DataGrid Name="SubstitutionTable" ItemsSource="{Binding}" Grid.Column="2" Margin="5,25,5,5" CanUserReorderColumns="False" CanUserResizeColumns="False" AutoGenerateColumns="False">
+            <DataGrid Name="SubstitutionTable" ItemsSource="{Binding}" Grid.Column="2" Margin="5,25,5,5" CanUserReorderColumns="False" CanUserResizeColumns="False" AutoGenerateColumns="False" CanUserAddRows="False" CanUserDeleteRows="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Original" IsReadOnly="True" Binding="{Binding Path=Original}" Width="1*"/>
-                    <DataGridTextColumn Header="Replace" IsReadOnly="False" Binding="{Binding Path=Replace}" Width="1*">
+                    <DataGridTextColumn Header="Index" IsReadOnly="True" Binding="{Binding Path=Index}" Width="1*"/>
+                    <DataGridTextColumn Header="Original" IsReadOnly="True" Binding="{Binding Path=Original}" Width="2*"/>
+                    <DataGridTextColumn Header="Replace" IsReadOnly="False" Binding="{Binding Path=Replace}" Width="2*">
                         <DataGridTextColumn.EditingElementStyle>
                             <Style TargetType="TextBox">
                                 <Setter Property="MaxLength" Value="1"/>
@@ -98,6 +99,13 @@
             <Button Name="Substitute" Grid.Column="2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="5" Click="Substitute_Click">Substitute</Button>
         </Grid>
 
+        <!-- Elements for the plain text at the bottom of the window -->
+        <TextBlock Grid.ColumnSpan="5" Grid.Row="2" Margin="5">Plain Text:</TextBlock>
+        <TextBox Name="PlainTextBox" FontFamily="Courier New" Grid.ColumnSpan="5" Grid.Row="2" Margin="5,21,5,30" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+        <Button Name="Copy" Grid.ColumnSpan="5" Grid.Row="2" Width="50" HorizontalAlignment="Left"  Margin="5" Height="20" VerticalAlignment="Bottom" Click="Copy_Click">Copy</Button>
+        <Button Name="Clear" Grid.Column="5" Grid.Row="2" Width="50" HorizontalAlignment="Center" Margin="5" Height="20" VerticalAlignment="Bottom" Click="ClearSubstitution_Click">Clear</Button>
+        <Button Name="Save" Grid.ColumnSpan="5" Grid.Row="2" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="5" Click="Save_Click">Save</Button>
+
         <!-- Combo box to select decryption tool -->
         <ComboBox Name="CipherTypeComboBox" Grid.ColumnSpan="5" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="80,4" Width="155">
             <ComboBoxItem Selected="Caesar_Selected" IsSelected="True">Caesar Shift</ComboBoxItem>
@@ -106,11 +114,5 @@
             <ComboBoxItem Selected="Transposition_Selected">Columnar Transposition</ComboBoxItem>
             <ComboBoxItem Selected="Substitution_Selected">Subsitution</ComboBoxItem>
         </ComboBox>
-
-        <!-- Elements for the plain text at the bottom of the window -->
-        <TextBlock Grid.ColumnSpan="5" Grid.Row="2" Margin="5">Plain Text:</TextBlock>
-        <TextBox Name="PlainTextBox" Grid.ColumnSpan="5" Grid.Row="2" Margin="5,21,5,30" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-        <Button Name="Copy" Grid.ColumnSpan="5" Grid.Row="2" Width="50" HorizontalAlignment="Left"  Margin="5" Height="20" VerticalAlignment="Bottom" Click="Copy_Click">Copy</Button>
-        <Button Name="Save" Grid.ColumnSpan="5" Grid.Row="2" Width="50" HorizontalAlignment="Right" VerticalAlignment="Bottom"  Margin="5" Click="Save_Click">Save</Button>
     </Grid>
 </Window>
