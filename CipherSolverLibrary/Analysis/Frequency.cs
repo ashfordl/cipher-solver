@@ -101,9 +101,9 @@ namespace CipherSolver.Analysis
         /// </remarks>
         /// <param name="plaintexts">The plaintexts to rank</param>
         /// <returns>The list of plaintexts sorted by the above methodology, with their stats.</returns>
-        public static List<Tuple<string, int, int>> RankByFreqAndBigrams(List<string> plaintexts)
+        public static List<Tuple<string, double, int>> RankByFreqAndBigrams(List<string> plaintexts)
         {
-            List<Tuple<string, int, int>> ranked = new List<Tuple<string, int, int>>();
+            List<Tuple<string, double, int>> ranked = new List<Tuple<string, double, int>>();
 
             // The 10 most common letters in ordinary English
             var top10freqs = Frequency.NATURAL_FREQUENCIES
@@ -122,12 +122,16 @@ namespace CipherSolver.Analysis
                                 .Count();                                       // appearing in English
                                                                                 // top 10 letters
 
-                ranked.Add(new Tuple<string, int, int>(plain, freqs, CountBigrams(plain)));
+                // Ratio of good bigrams to all bigrams
+                double ratio = (double)CountBigrams(plain) / (double)(plain.Length - 1);
+
+                ranked.Add(new Tuple<string, double, int>(plain, ratio, freqs));
             }
 
             // The letter frequency score (Item2) is multiplied by 3, so it becomes a score out
             //  of 30 instead of 10, so that it can be weighted 50/50 with the bigrams score
-            ranked = ranked.OrderByDescending(t => (t.Item2 * 3) + t.Item3)
+            // The bigrams score is typically around 30% for a proper English string, so 
+            ranked = ranked.OrderByDescending(t => (t.Item2 * 3) + (t.Item3 * 100))
                            .ToList();
 
             return ranked;
